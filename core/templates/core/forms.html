@@ -1,0 +1,19 @@
+
+{% extends 'core/base.html/'%}
+{% block title %} forms page {% endblock%}
+{% block content %} 
+<h2>Naya Student Add Karein</h2>
+
+<form method="POST" enctype="multipart/form-data" action="{% url 'addimginform' %}">
+    {% csrf_token %}  {{ form.as_p }} 
+    <input type="text" name="name">
+    <input type="text" name="uni">
+    <input type="text" name="sub">
+    <input type="number" name="sem">
+    <input type="file" name="project_image">
+    <button type="submit" class="btn btn-success">Save Student</button>
+</form>
+
+<a href="{% url 'home' %}">Back to Home</a>
+
+{% endblock%}
